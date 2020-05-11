@@ -1,0 +1,30 @@
+@extends('templates.index')
+
+@section('head')
+    @include('templates.head')
+@endsection
+@section('nav')
+    @include('templates.nav')
+@endsection
+@section('header')
+    @include('templates.header')
+@endsection
+@section('service')
+    @include('templates.service')
+@endsection
+@section('portfolio')
+    @include('templates.portfolio')
+@endsection
+@section('about')
+    @include('templates.about')
+@endsection
+@section('contact')
+    @include('templates.contact')
+@endsection
+@section('footer')
+    @include('templates.footer')
+@endsection
+@section('end')
+    @include('templates.end')
+@endsection
+
