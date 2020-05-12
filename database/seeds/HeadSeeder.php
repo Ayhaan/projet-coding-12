@@ -12,7 +12,7 @@ class HeadSeeder extends Seeder
     public function run()
     {
         DB::table('heads')->insert([
-            // 'url_img' =>"",
+            'url_img' =>"assets/img/backgrounds/1.jpg",
             'title' => "Welcome to our site",
             'descirption' => "We are Lancar, a design agency doing cool things with Photoshop and WordPress. Take a look around to see what we can do for you!",
             "created_at" => now(),

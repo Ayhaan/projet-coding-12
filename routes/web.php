@@ -26,3 +26,6 @@ Route::get('/home', function() {
 })->name('home')->middleware('auth');
 
 Route::resource('/profil', 'ProfilController')->middleware('auth');
+Route::resource('/head', 'HeadController')->middleware('auth');
+
+

@@ -230,6 +230,7 @@ return [
         [
             'text'       => 'Intro',
             'icon'       => 'fas fa-fw fas fa-book-open',
+            'url'        => '/head'
             // 'icon_color' => 'red',
         ],
         [
