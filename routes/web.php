@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'AllController@show');
 
 Auth::routes([
     'register' => false, // Registration Routes...
@@ -26,3 +24,5 @@ Auth::routes([
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
+
+Route::resource('/profil', 'ProfilController')->middleware('auth');

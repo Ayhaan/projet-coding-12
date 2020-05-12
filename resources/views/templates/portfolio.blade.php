@@ -21,15 +21,17 @@
 	            </div>
 	            <div class="row">
 	            	<div class="col-sm-12 portfolio-masonry">
-		                <div class="portfolio-box design">
-		                	<img src="assets/img/portfolio/1.jpg" alt="" data-at2x="assets/img/portfolio/1.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Trilli Bi template</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box development">
+							@foreach ($portfolios as $portfolio)
+							<div class="portfolio-box design">
+								<img src="{{$portfolio->url_img}}" alt="" data-at2x="assets/img/portfolio/1.jpg">
+								<div class="portfolio-box-text-container">
+									<div class="portfolio-box-text">
+										<p>{{$portfolio->span}}</p>
+									</div>
+								</div>
+							</div>		
+						@endforeach
+		                {{-- <div class="portfolio-box development">
 		                	<img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
 		                	<div class="portfolio-box-text-container">
 		                		<div class="portfolio-box-text">
@@ -116,7 +118,7 @@
 		                			<p>Sit website logo</p>
 		                		</div>
 		                	</div>
-		                </div>
+		                </div> --}}
 	                </div>
 	            </div>
 	        </div>

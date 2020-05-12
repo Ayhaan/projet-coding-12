@@ -6,7 +6,7 @@
 	                	<h2>Contact us</h2>
 	                	<div class="divider-1 wow fadeInUp"><span></span></div>
 	                    <p>
-	                    	For every question, information or just to say "Hi", here is how you can get in touch with us. Send us an email or come visit us!
+	                    	{{$contact->description}}
 	                    </p>
 	                </div>
 	            </div>
@@ -31,9 +31,9 @@
 	            	</div>
 	            	<div class="col-sm-4 block-2-box block-2-right contact-address wow fadeInUp">
 	            		<h3>Visit us</h3>
-	                    <p><span aria-hidden="true" class="icon_pin"></span>Via Principe Amedeo 9, Torino, Italy</p>
-	                    <p><span aria-hidden="true" class="icon_phone"></span>Phone: 0039 333 12 68 347</p>
-	                    <p><span aria-hidden="true" class="icon_mail"></span>Email: <a href="">hi@yourdomain.com</a></p>
+	                    <p><span aria-hidden="true" class="icon_pin"></span>Via {{$contact->adress}}</p>
+	                    <p><span aria-hidden="true" class="icon_phone"></span>Phone: {{$contact->phone}}</p>
+	                    <p><span aria-hidden="true" class="icon_mail"></span>Email: <a href="">{{$contact->email}}</a></p>
 	            	</div>
 	            </div>
 	            <div class="contact-icon-container">

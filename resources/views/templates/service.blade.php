@@ -12,34 +12,17 @@
 	                </div>
 	            </div>
 	            <div class="row">
-                	<div class="col-sm-3 block-3-box wow fadeInUp">
-	                	<div class="block-3-box-icon">
-	                		<span aria-hidden="true" class="icon_pencil"></span>
-	                	</div>
-	                    <h3>Web Design</h3>
-	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                    </div>
-                    <div class="col-sm-3 block-3-box wow fadeInDown">
-	                	<div class="block-3-box-icon">
-	                		<span aria-hidden="true" class="icon_cogs"></span>
-	                	</div>
-	                    <h3>Ui / Ux</h3>
-	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                    </div>
-                    <div class="col-sm-3 block-3-box wow fadeInUp">
-	                	<div class="block-3-box-icon">
-	                		<span aria-hidden="true" class="social_twitter"></span>
-	                	</div>
-	                    <h3>Social Media</h3>
-	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                    </div>
-                    <div class="col-sm-3 block-3-box wow fadeInDown">
-	                	<div class="block-3-box-icon">
-	                		<span aria-hidden="true" class="icon_lightbulb"></span>
-	                	</div>
-	                    <h3>Branding</h3>
-	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                    </div>
-	            </div>
+					@foreach ($services as $service)
+						<div class="col-sm-3 block-3-box wow fadeInUp">
+							<div class="block-3-box-icon">
+								<span aria-hidden="true" class="{{$service->logo}}"></span>
+							</div>
+							<h3>{{$service->title}}</h3>
+							<p>{{$service->span}}</p>
+						</div>
+					@endforeach
+				</div>
+				{{$services->links()}}
+				
 	        </div>
         </div>

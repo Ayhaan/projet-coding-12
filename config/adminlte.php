@@ -212,13 +212,18 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'profil',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
             'url'  => 'password/reset',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Back to site',
+            'url'  => '/',
+            'icon' => 'fas fa-fw fa-undo-alt',
         ],
 
         ['header' => 'WEB SITE'],
