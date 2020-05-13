@@ -129,7 +129,7 @@ class AboutController extends Controller
             "twitter.required"=>"Twitter: Champs obligatoire !",
             "pinterest.required"=>"Pinterest: Champs obligatoire !",
         ]);
-        $about-> name = $request-> name;
+        $about->name = $request->name;
         $about-> description = $request-> description;
         $about-> descriptionSecondary = $request-> descriptionSecondary;
         $about-> facebook = $request-> facebook;
