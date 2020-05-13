@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -14,7 +15,8 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $portfolios = Portfolio::all();
+        return view('portfolio', compact('portfolios'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view(('portfolio.create'));
     }
 
     /**
@@ -35,7 +37,16 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $img = $request->file('img_path');
+        $newName= Storage::disk('public')->put('', $img);
+        $portfolio = new Portfolio();
+
+        $portfolio->url_img = $newName;
+        $portfolio->span = $request->span;
+
+        $portfolio->save();
+        return redirect()->route('portfolio.index');
+
     }
 
     /**
@@ -57,7 +68,7 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        //
+        return view('portfolio.edit', compact('portfolio'));
     }
 
     /**
@@ -69,7 +80,25 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        //
+        request()->validate([
+            "span" => 'required',
+        ],[
+            "span.required" =>"Titre : Le champ  est obligatoire.",
+        ]);
+
+        $portfolio->span = $request->span;
+        if ($request->hasFile('img_path')) {
+            // Supp l'ancienne photo du storage
+            Storage::disk('public')->delete($portfolio->url_img);
+            // Remmettre la nouvelle phott dans le storage
+            $img = $request->file('img_path');  
+            $newName= Storage::disk('public')->put('', $img);                                                                         
+            // Mettre à jour la nouvelle url
+            $portfolio->url_img = $newName;
+        } 
+        $portfolio->save();
+        return redirect()->route('portfolio.index')->with('success', 'Vos données ont bien été modifié.');
+
     }
 
     /**
@@ -80,6 +109,9 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
-        //
+
+        Storage::disk('public')->delete($portfolio->url_img);
+        $portfolio->delete();
+        return redirect()->back();
     }
 }

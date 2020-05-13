@@ -29,8 +29,8 @@ Route::get('/home', function() {
 Route::resource('/profil', 'ProfilController')->middleware('auth');
 Route::resource('/head', 'HeadController')->middleware('auth');
 Route::resource('/service', 'ServiceController')->middleware('auth');
-Route::resource('/portfolio', 'ServiceController')->middleware('auth');
-Route::resource('/about', 'ServiceController')->middleware('auth');
-Route::resource('/contact', 'ServiceController')->middleware('auth');
+Route::resource('/portfolio', 'PortfolioController')->middleware('auth');
+Route::resource('/about', 'AboutController')->middleware('auth');
+Route::resource('/contact', 'ContactController')->middleware('auth');
 
 

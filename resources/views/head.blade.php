@@ -51,7 +51,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <button type="button" class="btn btn-secondary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">Modifier</button>
+            <button type="button" class="btn btn-info mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">Modifier</button>
         </div>
     </div>
 

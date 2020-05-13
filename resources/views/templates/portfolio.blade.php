@@ -21,9 +21,14 @@
 	            </div>
 	            <div class="row">
 	            	<div class="col-sm-12 portfolio-masonry">
-							@foreach ($portfolios as $portfolio)
+						@foreach ($portfolios as $portfolio)
 							<div class="portfolio-box design">
-								<img src="{{$portfolio->url_img}}" alt="" data-at2x="assets/img/portfolio/1.jpg">
+
+								@if (Storage::disk('public')->has($portfolio->url_img))
+									<img src="{{asset('storage/'.$portfolio->url_img)}}" alt="" data-at2x="assets/img/portfolio/1.jpg">             
+								@else
+									<img src="{{$portfolio->url_img}}" alt="" data-at2x="assets/img/portfolio/1.jpg">
+								@endif
 								<div class="portfolio-box-text-container">
 									<div class="portfolio-box-text">
 										<p>{{$portfolio->span}}</p>
@@ -31,94 +36,7 @@
 								</div>
 							</div>		
 						@endforeach
-		                {{-- <div class="portfolio-box development">
-		                	<img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Sit amet logo</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box branding">
-		                	<img src="assets/img/portfolio/3.jpg" alt="" data-at2x="assets/img/portfolio/3.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Aeria app page</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box development">
-		                	<img src="assets/img/portfolio/4.jpg" alt="" data-at2x="assets/img/portfolio/4.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Etiam processus dynamicus</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box design">
-		                	<img src="assets/img/portfolio/5.jpg" alt="" data-at2x="assets/img/portfolio/5.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>March notare site</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box development">
-		                	<img src="assets/img/portfolio/6.jpg" alt="" data-at2x="assets/img/portfolio/6.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Mirum est notare</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box design">
-		                	<img src="assets/img/portfolio/7.jpg" alt="" data-at2x="assets/img/portfolio/7.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Celic template</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box development">
-		                	<img src="assets/img/portfolio/8.jpg" alt="" data-at2x="assets/img/portfolio/8.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Sit amet logo</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box branding">
-		                	<img src="assets/img/portfolio/9.jpg" alt="" data-at2x="assets/img/portfolio/9.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Jalia business</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box design">
-		                	<img src="assets/img/portfolio/10.jpg" alt="" data-at2x="assets/img/portfolio/10.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Mirum est notare</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box development">
-		                	<img src="assets/img/portfolio/11.jpg" alt="" data-at2x="assets/img/portfolio/11.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Etiam processus social</p>
-		                		</div>
-		                	</div>
-		                </div>
-		                <div class="portfolio-box branding">
-		                	<img src="assets/img/portfolio/12.jpg" alt="" data-at2x="assets/img/portfolio/12.jpg">
-		                	<div class="portfolio-box-text-container">
-		                		<div class="portfolio-box-text">
-		                			<p>Sit website logo</p>
-		                		</div>
-		                	</div>
-		                </div> --}}
+
 	                </div>
 	            </div>
 	        </div>
