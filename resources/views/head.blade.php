@@ -2,7 +2,12 @@
 
 @section('content')
 
-<h3 class="text-center pb-4">Modification "Header"</h3>
+<h3 class="text-center pb-1">Modification "Header"</h3>
+    <div class="d-flex justify-content-center mb-4">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Modifier</button>
+    </div>
+
+
     <div class="container">
         @if(\Session::has('success'))
             <div class='alert alert-success text-center'>
@@ -49,11 +54,6 @@
         
 
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <button type="button" class="btn btn-info mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">Modifier</button>
-        </div>
-    </div>
 
     </div>
 </div>
@@ -87,10 +87,10 @@
                     <div  class="form-group mb-4">
                         <label  for="inputFile">Upload</label>
                         <input  type="file"  name="img_path"  id="inputFile"> 
-                        <button  class="btn btn-success"  type="submit">Envoyer</button>                    
                     </div>
 
                     <div class="d-flex justify-content-end">
+                        <a class="btn btn-secondary mr-2" href="/head">Back</a>
                         <button  class="btn btn-success" type="submit">Upload</button>
                     </div>
             </form>

@@ -44,6 +44,7 @@
 
                                     
                                     <div class="d-flex justify-content-center">
+                                         <a class="btn btn-secondary mr-2" href="/service">Back</a>
                                         <button  class="btn btn-success" type="submit">Upload</button>
                                     </div>
                             </form>

@@ -37,6 +37,13 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "span" => "required",
+            "img_path" =>"required",
+        ],[
+            "span.required" => "Nom du projet: Le champs est obligatoire !",
+            "img_path.required" => "Url erreur: Importez une image ! ",
+        ]);
         $img = $request->file('img_path');
         $newName= Storage::disk('public')->put('', $img);
         $portfolio = new Portfolio();

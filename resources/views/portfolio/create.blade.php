@@ -22,7 +22,6 @@
                                     <div  class="form-group mb-4">
                                         <label  for="inputFile">Image</label>
                                         <input  type="file"  name="img_path"  id="inputFile"> 
-                                        <button  class="btn btn-success"  type="submit">Envoyer</button>                    
                                     </div>
                                         
                                     @if ($errors->any())
@@ -38,6 +37,7 @@
 
                                     
                                     <div class="d-flex justify-content-center mt-5">
+                                        <a class="btn btn-secondary mr-2" href="/portfolio">Back</a>
                                         <button  class="btn btn-success" type="submit">Upload</button>
                                     </div>
                             </form>

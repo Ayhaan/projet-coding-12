@@ -59,7 +59,14 @@
 	            	</div>
 	            	<div class="col-sm-4 block-2-box block-2-right block-2-media wow fadeInUp">
 	            		<div class="block-2-img-container">
-							<img src={{$abouts[$i]->img_url}} alt="" data-at2x="assets/img/about/1.jpg">
+
+							@if (Storage::disk('public')->has($abouts[$i]->img_url))
+								<img  src={{asset('storage/'.$abouts[$i]->img_url)}} alt="" data-at2x="assets/img/about/1.jpg">
+							@else 
+								<img src={{$abouts[$i]->img_url}} alt="" data-at2x="assets/img/about/1.jpg">
+							@endif
+
+							{{-- <img src={{$abouts[$i]->img_url}} alt="" data-at2x="assets/img/about/1.jpg"> --}}
 	            			<div class="img-container-line line-1"></div>
 	            			<div class="img-container-line line-2"></div>
 	            			<div class="img-container-line line-3"></div>
@@ -75,7 +82,12 @@
 				<div class="row">
 					<div class="col-sm-4 block-2-box block-2-left block-2-media wow fadeInLeft">
 						<div class="block-2-img-container">
-							<img src={{$abouts[$i]->img_url}} alt="" data-at2x="assets/img/about/1.jpg">
+							@if (Storage::disk('public')->has($abouts[$i]->img_url))
+								<img  src={{asset('storage/'.$abouts[$i]->img_url)}} alt="" data-at2x="assets/img/about/1.jpg">
+							@else 
+								<img src={{$abouts[$i]->img_url}} alt="" data-at2x="assets/img/about/1.jpg">
+							@endif
+							{{-- <img src={{$abouts[$i]->img_url}} alt="" data-at2x="assets/img/about/1.jpg"> --}}
 							<div class="img-container-line line-1"></div>
 							<div class="img-container-line line-2"></div>
 							<div class="img-container-line line-3"></div>
