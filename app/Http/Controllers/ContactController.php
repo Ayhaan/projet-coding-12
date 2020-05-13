@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\email as AppEmail;
+use App\Mail\Email;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -13,8 +16,10 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('contact');
+    {   
+        $contacts = Contact::all();
+        $mails= AppEmail::all()->reverse();
+        return view('contact', compact('contacts', "mails"));
     }
 
     /**
@@ -56,8 +61,8 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Contact $contact)
-    {
-        //
+    {   
+
     }
 
     /**
@@ -69,7 +74,18 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        request()->validate([
+            "description"=>"required|min:5",
+            "adress"=>"required|",
+            "phone"=>"required|min:10",
+            "email"=>"required|email",
+        ]);
+        $contact->description = $request->description;
+        $contact->adress = $request->adress;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->save();
+        return redirect()->back()->with('success', "Le contenu est bien été modifé !");
     }
 
     /**
@@ -78,8 +94,37 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(AppEmail $appemail)
+    {   
+           //
+    }
+
+    public function seed(Request $request)
+    {        
+        $request->validate([
+        "email" =>'required',
+        "subject" =>'required|email',
+        "message" =>'required|min:5'
+    ]);
+        
+        Mail::to('ayhan.cln97@gmail.com')->send(new Email($request->email, $request->subject, $request->message));
+        return redirect()->back()->with('success', 'Message sent');
+
+    }   
+    public function mail(Request $request)
+    {        
+        $mail = new AppEmail();
+        $mail->email = $request->email;
+        $mail->subject = $request->subject;
+        $mail->message = $request->message;
+        $mail->save();
+        return redirect()->back()->with('success', 'Message sent');
+    }
+
+    public function delete(AppEmail $mail)
     {
-        //
+        // dd($mail);
+        $mail->delete();
+        return redirect()->back();
     }
 }

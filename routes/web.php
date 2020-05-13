@@ -33,4 +33,7 @@ Route::resource('/portfolio', 'PortfolioController')->middleware('auth');
 Route::resource('/about', 'AboutController')->middleware('auth');
 Route::resource('/contact', 'ContactController')->middleware('auth');
 
+Route::post('/seed', 'ContactController@seed')->middleware('auth');
+Route::post('/seed/mail', 'ContactController@mail')->middleware('auth');
+Route::delete('/delete/{mail}', 'ContactController@delete')->middleware('auth');
 

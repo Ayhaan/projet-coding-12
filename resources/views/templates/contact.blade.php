@@ -12,22 +12,49 @@
 	            </div>
 	            <div class="row">
 	            	<div class="col-sm-4 block-2-box block-2-left contact-form wow fadeInLeft">
-	            		<h3>Email us</h3>
-	                    <form role="form" action="assets/contact.php" method="post">
+						<h3>Email us</h3>
+
+						@if(\Session::has('success'))
+							<div class='alert alert-success text-center'>
+								{{\Session::get('success')}}
+							</div>
+						@endif
+						
+						<form action="/seed/mail" method="POST">
+							@csrf
+
 	                    	<div class="form-group">
 	                    		<label class="sr-only" for="contact-email">Email</label>
-	                        	<input type="text" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
+								<input type="text" name="email" placeholder="Email..." class="contact-email form-control" >
+								@error('email')
+									<div class='alert alert-danger'>
+										{{$message}}
+									</div>
+								@enderror
 	                        </div>
 	                        <div class="form-group">
 	                        	<label class="sr-only" for="contact-subject">Subject</label>
-	                        	<input type="text" name="subject" placeholder="Subject..." class="contact-subject form-control" id="contact-subject">
+								<input type="text" name="subject" placeholder="Subject..." class="contact-subject form-control" >
+								@error('subject')
+									<div class='alert alert-danger'>
+										{{$message}}
+									</div>
+								@enderror
 	                        </div>
 	                        <div class="form-group">
 	                        	<label class="sr-only" for="contact-message">Message</label>
-	                        	<textarea name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
+								<textarea name="message" placeholder="Message..." class="contact-message form-control" ></textarea>
+								@error('message')
+									<div class='alert alert-danger'>
+										{{$message}}
+									</div>
+								@enderror
 	                        </div>
-	                        <button type="submit" class="btn">Send it</button>
-	                    </form>
+							<button type="submit" class="btn">Send it</button>
+							
+						</form>
+
+							
 	            	</div>
 	            	<div class="col-sm-4 block-2-box block-2-right contact-address wow fadeInUp">
 	            		<h3>Visit us</h3>

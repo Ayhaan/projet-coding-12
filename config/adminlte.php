@@ -246,7 +246,7 @@ return [
             'url'   => '/about',
         ],
         [
-            'text'  => 'Contaaact',
+            'text'  => 'Contact',
             'icon'  => 'fas fa-fw fa-envelope-open-text',
             'url'   => '/contact',
         ],

@@ -100,7 +100,7 @@ class ServiceController extends Controller
         $service->title = $request->Title;
         $service->span = $request->span;
         $service->save();
-        return redirect()->route('service.index')->with('success', 'Félicitation, votre Role à bien été modifié.');
+        return redirect()->route('service.index')->with('success', 'Votre Service à bien été modifié.');
 
     }
 
