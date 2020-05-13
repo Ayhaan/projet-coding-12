@@ -208,7 +208,6 @@ return [
     */
 
     'menu' => [
-
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -225,33 +224,31 @@ return [
             'url'  => '/',
             'icon' => 'fas fa-fw fa-undo-alt',
         ],
-
         ['header' => 'WEB SITE'],
         [
-            'text'       => 'Intro',
-            'icon'       => 'fas fa-fw fas fa-book-open',
-            'url'        => '/head'
-            // 'icon_color' => 'red',
+            'text' => 'Intro',
+            'icon' => 'fas fa-fw fas fa-book-open',
+            'url'  => '/head',
         ],
         [
-            'text'       => 'Services',
-            'icon'       => 'fas fa-fw fas fa-code-branch',
-            // 'icon_color' => 'red',
+            'text' => 'Services',
+            'icon' => 'fas fa-fw fas fa-code-branch',
+            'url'  => '/service',
         ],
         [
-            'text'       => 'Portfolio',
-            'icon'       => 'fas fa-fw fa-portrait ',
-            // 'icon_color' => 'red',
+            'text'  => 'Portfolio',
+            'icon'  => 'fas fa-fw fa-portrait ',
+            'url'   => '/portfolio',
         ],
         [
-            'text'       => 'About',
-            'icon'       => 'fas fa-fw fa-address-card',
-            // 'icon_color' => 'yellow',
+            'text'  => 'About',
+            'icon'  => 'fas fa-fw fa-address-card',
+            'url'   => '/about',
         ],
         [
-            'text'       => 'Contact',
-            'icon'       => 'fas fa-fw fa-envelope-open-text',
-            // 'icon_color' => 'cyan',
+            'text'  => 'Contaaact',
+            'icon'  => 'fas fa-fw fa-envelope-open-text',
+            'url'   => '/contact',
         ],
     ],
 

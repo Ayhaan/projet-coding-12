@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,9 @@ Route::get('/home', function() {
 
 Route::resource('/profil', 'ProfilController')->middleware('auth');
 Route::resource('/head', 'HeadController')->middleware('auth');
+Route::resource('/service', 'ServiceController')->middleware('auth');
+Route::resource('/portfolio', 'ServiceController')->middleware('auth');
+Route::resource('/about', 'ServiceController')->middleware('auth');
+Route::resource('/contact', 'ServiceController')->middleware('auth');
 
 

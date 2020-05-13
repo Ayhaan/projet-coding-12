@@ -14,7 +14,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('service', compact('services'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('service.create');
     }
 
     /**
@@ -35,7 +36,23 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'logo'=>'required',
+            'Title'=>'required',
+            'span'=>'required|min:5',
+        ],[
+            'logo.required' => "Logo : Le champs est obligatoire",
+            'Title.required' => "Titre : Le champs est obligatoire",
+            'span.required' => "Description : Le champs est obligatoire",
+            'span.max' => "Erreur description: Minimum 10 caractéres."
+        ]); 
+
+        $service = new Service();
+        $service->logo = $request->logo;
+        $service->title = $request->Title;
+        $service->span = $request->span;
+        $service->save();
+        return redirect()->route('service.index')->with('success', 'Félicitation, votre Role à bien été crée.');
     }
 
     /**
@@ -57,7 +74,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('service.edit', compact('service'));
     }
 
     /**
@@ -69,7 +86,22 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        request()->validate([
+            'logo'=>'required',
+            'Title'=>'required',
+            'span'=>'required|min:5',
+        ],[
+            'logo.required' => "Logo : Le champs est obligatoire",
+            'Title.required' => "Titre : Le champs est obligatoire",
+            'span.required' => "Description : Le champs est obligatoire",
+            'span.max' => "Erreur description: Minimum 10 caractéres."
+        ]); 
+        $service->logo = $request->logo;
+        $service->title = $request->Title;
+        $service->span = $request->span;
+        $service->save();
+        return redirect()->route('service.index')->with('success', 'Félicitation, votre Role à bien été modifié.');
+
     }
 
     /**
@@ -80,6 +112,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->back();
     }
 }
