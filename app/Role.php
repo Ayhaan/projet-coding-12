@@ -12,4 +12,6 @@ class Role extends Model
     public function abouts(){
         return $this->hasMany(User::class);
     }
+
+        
 }

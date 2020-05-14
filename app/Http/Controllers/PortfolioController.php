@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Logiciel;
 use App\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
@@ -25,8 +27,10 @@ class PortfolioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view(('portfolio.create'));
+    {   
+        $logiciels = Logiciel::all();
+        return view('portfolio.create', compact(('logiciels')));
+
     }
 
     /**
@@ -50,7 +54,9 @@ class PortfolioController extends Controller
 
         $portfolio->url_img = $newName;
         $portfolio->span = $request->span;
-
+        if (Auth::user()->role_id == 1){
+            $portfolio->logiciel_id = $request->logiciel_id;
+        }
         $portfolio->save();
         return redirect()->route('portfolio.index');
 
@@ -75,7 +81,8 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        return view('portfolio.edit', compact('portfolio'));
+        $logiciels = Logiciel::all();
+        return view('portfolio.edit', compact('portfolio', 'logiciels'));
     }
 
     /**
@@ -92,6 +99,9 @@ class PortfolioController extends Controller
         ],[
             "span.required" =>"Titre : Le champ  est obligatoire.",
         ]);
+        if (Auth::user()->role_id == 1){
+            $portfolio->logiciel_id = $request->logiciel_id;
+        }
 
         $portfolio->span = $request->span;
         if ($request->hasFile('img_path')) {

@@ -20,10 +20,18 @@
                                         <input  type="text" class="form-control" value="{{$portfolio->span}}" name="span"  id=""  placeholder="Votre titre">
                                     </div>
 
+                                    <div class="form-group ">
+                                        <label for="inputState">Type de projet</label>
+                                        <select name="logiciel_id" id="inputState" class="form-control">
+                                            @foreach($logiciels as $logiciel)
+                                                <option {{ $logiciel->id == $portfolio->logiciel_id ? "selected" : "" }} value="{{$logiciel->id}}">{{$logiciel->name}}</option>
+                                            @endforeach                                        </select>
+                                      </div>
                                     <div  class="form-group mb-4">
                                         <label  for="inputFile">Image</label>
                                         <input  type="file"  name="img_path"  id="inputFile"> 
                                     </div>
+
                                         
                                     @if ($errors->any())
                                         <div  class="alert alert-danger">

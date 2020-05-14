@@ -18,6 +18,13 @@
                                         <label  for="">Titre du projet</label>
                                         <input  type="text" class="form-control" name="span"  id=""  placeholder="Votre titre">
                                     </div>
+                                    <div class="form-group ">
+                                        <label for="inputState">Type de projet</label>
+                                        <select name="logiciel_id" id="inputState" class="form-control">
+                                            @foreach($logiciels as $logiciel)
+                                                <option  value="{{$logiciel->id}}">{{$logiciel->name}}</option>
+                                            @endforeach                                        </select>
+                                      </div>
 
                                     <div  class="form-group mb-4">
                                         <label  for="inputFile">Image</label>

@@ -22,7 +22,7 @@
 	            <div class="row">
 	            	<div class="col-sm-12 portfolio-masonry">
 						@foreach ($portfolios as $portfolio)
-							<div class="portfolio-box design">
+							<div class="portfolio-box {{$portfolio->logiciel->name}}">
 
 								@if (Storage::disk('public')->has($portfolio->url_img))
 									<img src="{{asset('storage/'.$portfolio->url_img)}}" alt="" data-at2x="assets/img/portfolio/1.jpg">             
