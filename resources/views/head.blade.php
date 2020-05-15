@@ -2,7 +2,13 @@
 
 @section('content')
 
-<h3 class="text-center pb-1">Modification "Header"</h3>
+{{-- <h3 class="text-center pb-1">Modification ""</h3> --}}
+<div class="d-flex justify-content-center">
+    <div class="card w-50 ">
+      <h5 class="mb-0 font-weight-bold text-center bg-info shadow p-3 mb-1rounded">Edit Header</h5>
+    </div>
+
+</div>
     <div class="d-flex justify-content-center mb-4">
         <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Modifier</button>
     </div>

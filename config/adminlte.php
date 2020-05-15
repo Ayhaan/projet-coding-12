@@ -236,17 +236,17 @@ return [
             'url'  => '/service',
         ],
         [
-            'text'  => 'Portfolio',
+            'text'  => 'Projet',
             'icon'  => 'fas fa-fw fa-portrait ',
             'url'   => '/portfolio',
         ],
         [
-            'text'  => 'About',
+            'text'  => 'Membres',
             'icon'  => 'fas fa-fw fa-address-card',
             'url'   => '/about',
         ],
         [
-            'text'  => 'Contact',
+            'text'  => 'MailBox',
             'icon'  => 'fas fa-fw fa-envelope-open-text',
             'url'   => '/contact',
         ],

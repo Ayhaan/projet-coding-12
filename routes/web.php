@@ -31,9 +31,9 @@ Route::resource('/head', 'HeadController')->middleware('auth');
 Route::resource('/service', 'ServiceController')->middleware('auth');
 Route::resource('/portfolio', 'PortfolioController')->middleware('auth');
 Route::resource('/about', 'AboutController')->middleware('auth');
-Route::resource('/contact', 'ContactController')->middleware('auth');
+Route::resource('/contact', 'ContactController');
 
 Route::post('/seed', 'ContactController@seed')->middleware('auth');
-Route::post('/seed/mail', 'ContactController@mail')->middleware('auth');
+Route::post('/seed/mail', 'ContactController@mail');
 Route::delete('/delete/{mail}', 'ContactController@delete')->middleware('auth');
 

@@ -48,6 +48,8 @@ class AboutController extends Controller
             "dribbble"=>"required",
             "twitter"=>"required",
             "pinterest"=>"required",
+            "img_path" =>"required",
+
         ],[
             "name.required"=>"Nom : Champs obligatoire !",
             "description.required"=>"Présentation: Champs obligatoire !",
@@ -58,6 +60,8 @@ class AboutController extends Controller
             "dribbble.required"=>"Dribbble: Champs obligatoire !",
             "twitter.required"=>"Twitter: Champs obligatoire !",
             "pinterest.required"=>"Pinterest: Champs obligatoire !",
+            "img_path.required" => "Url erreur: Importez une image ! ",
+
         ]);
         $about = new About();
         $about-> name = $request-> name;

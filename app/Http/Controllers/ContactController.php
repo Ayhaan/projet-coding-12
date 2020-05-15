@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->only('index','create','store','show','edit','update','delete');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -113,6 +116,11 @@ class ContactController extends Controller
     }   
     public function mail(Request $request)
     {        
+        request()->validate([
+            "email"=>"required|email",
+            "subject"=>"required",
+            "message"=>"required|min:5",
+        ]);
         $mail = new AppEmail();
         $mail->email = $request->email;
         $mail->subject = $request->subject;

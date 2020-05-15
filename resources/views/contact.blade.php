@@ -40,9 +40,12 @@
       <div class="col-md-9">
         <div class="box box-primary">
 
-          <div class="box-header with-border">
-            <h3 class="box-title">Your MailBox</h3>
-          </div>
+          {{-- <div class="box-header with-border">
+            <h3 class="box-title"></h3>
+          </div> --}}
+          <div class="card w-25">
+            <h5 class="mb-0 font-weight-bold text-center bg-info shadow p-3 mb-1rounded">Your MailBox</h5>
+        </div>
          
 
             <div class="table-responsive mailbox-messages">

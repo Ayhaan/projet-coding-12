@@ -16,7 +16,6 @@
                             <li><a class="scroll-link" href="#top-content">Top</a></li>
                             <li><a class="scroll-link" href="#what-we-do">Services</a></li>
                             <li><a class="scroll-link" href="#portfolio">Portfolio</a></li>
-                            <li><a class="scroll-link" href="#pricing-2">Prices</a></li>
                             <li><a class="scroll-link" href="#about">About</a></li>
                             <li><a class="scroll-link" href="#contact">Contact</a></li>
                         </ul>

@@ -1,7 +1,10 @@
 @extends('adminlte::page')
 @section('content')
 <div class="mb-3 text-center">
-    <h3 class="text-center ">Membres du personnel</h3>
+    {{-- <h3 class="text-center ">Membres du </h3> --}}
+    <div class="card w-50 mx-auto">
+        <h5 class="mb-0 font-weight-bold text-center bg-info shadow p-3 mb-1rounded">Edit Personnel</h5>
+    </div>
     <a href="/about/create" class="btn btn-success">Ajouter un collégue</a>    
 </div>
 
@@ -16,7 +19,7 @@
 <div class="row">
     @foreach ($abouts as $about)
 
-        <div class="card w-75  m-2">
+        <div class="card w-75  m-2 mx-auto">
             <div class="card-body">
 	            <div class="row">
                     <div class="col-5 p-1">

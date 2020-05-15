@@ -31,7 +31,7 @@
 @section('body')
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ $dashboard_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            <a href="{{ $dashboard_url }}"> <strong>Welcome </strong> Lancar </a>
         </div>
         <div class="card">
             <div class="card-body login-card-body">
@@ -66,10 +66,10 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
+                            {{-- <div class="icheck-primary">
                                 <input type="checkbox" name="remember" id="remember">
                                 <label for="remember">{{ __('adminlte::adminlte.remember_me') }}</label>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block btn-flat">

@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="mb-5 text-center">
-    <h3 class="text-center ">Modification des Projets</h3>
+    {{-- <h3 class="text-center ">Modification des </h3> --}}
+    <div class="card w-50 d-flex mx-auto ">
+        <h5 class="mb-0 font-weight-bold text-center bg-info shadow p-3 mb-1rounded">Edit Projets</h5>
+      </div>
     <a href="/portfolio/create" class="btn btn-success">Créer un Projet</a>    
 </div>
 
@@ -16,8 +19,8 @@
 </div>
 <div class="row">
     @foreach ($portfolios as $portfolio)
-        <div class="card col-3 mt-2 mb-4">
-            <div class="card-body p-1   ">
+        <div class="card col-3 mb-5">
+            <div class="card-body    ">
              <div class="portfolio-box  {{$portfolio->logiciel->name}}">
                     <div class="d-flex justify-content-center">
                         @if (Storage::disk('public')->has($portfolio->url_img))
@@ -42,13 +45,16 @@
                     </div>
                 </div>	
             </div>
-            <div class="d-flex justify-content-center ">
-                <a href="/portfolio/{{$portfolio->id}}/edit" class="btn btn-info m-2">Edit</a>
+            <div class="d-flex justify-content-center mb-1">
+                <div>
+
+                    <a href="/portfolio/{{$portfolio->id}}/edit" class="btn btn-info ">Edit</a>
+                </div>
     
                 <form action="portfolio/{{$portfolio->id}}" method="post">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-danger m-2">Delete</button>
+                    <button type="submit" class="btn btn-danger ml-3">Delete</button>
                 </form>
             </div>
         </div>
